@@ -1,4 +1,4 @@
-import { cart } from "../data/cart.js";
+import { cart, addToCart, displayAddedMessage } from "../data/cart.js";
 import { products } from "../data/products.js";
 
 
@@ -63,51 +63,29 @@ products.forEach((product) =>{
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-document.querySelectorAll('.js-add-to-cart')
-  .forEach((button) => {
-    let addedMessageTimeoutId;
-    button.addEventListener('click', () => {
-      const { productId } = button.dataset;
 
-      let matchingItem;
 
-      cart.forEach((item) => {
-        if (productId === item.productId) {
-          matchingItem = item;
-        }
-      })
-
-      const selectorQuantity = Number(document.querySelector(`.js-quantity-selector-${productId}`).value)
-
-      if (matchingItem) {
-        matchingItem.quantity += selectorQuantity;
-      } else {
-        cart.push({
-          productId,
-          quantity: 0 + selectorQuantity
-        })
-      }
-      console.log(cart)
-      let cartQuantity = 0;
-      cart.forEach((item) => {
-        cartQuantity += item.quantity;
+function updateCartQuantity(productId) {
+  let cartQuantity = 0;
+      cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
       });
 
       document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
+}
 
-      const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`)
 
-      addedMessage.classList.add('is-visible')
+document.querySelectorAll('.js-add-to-cart')
+  .forEach((button) => {    
+    button.addEventListener('click', () => {
 
-     
-        if (addedMessageTimeoutId) {
-          clearTimeout(addedMessageTimeoutId)
-        }
+      const { productId } = button.dataset;
 
-        const timeoutID = setTimeout(() => {
-          addedMessage.classList.remove('is-visible')
-        }, 2000);
-        
-        addedMessageTimeoutId = timeoutID
+      addToCart(productId);
+
+      updateCartQuantity(productId);
+
+      displayAddedMessage(productId);
+
     })
   })

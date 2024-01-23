@@ -1,0 +1,4 @@
+const isChecked = deliveryOption.id === cartItem.deliveryOptionId;const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
+
+
+        ${isChecked ? 'checked' : ''}

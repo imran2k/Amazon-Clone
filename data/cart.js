@@ -81,4 +81,16 @@ export function calculateCartQuantity() {
     });
 
     document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
+
+    
+}
+
+export function calculateCheckoutQuantity() {
+  var cartQuantity = 0;
+  
+    cart.forEach((cartItem) => {
+      cartQuantity += cartItem.quantity;
+    });
+
+    document.querySelector('.js-checkout-header').innerHTML = `${cartQuantity} items`
 }

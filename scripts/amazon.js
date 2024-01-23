@@ -2,7 +2,7 @@ import { cart, addToCart, displayAddedMessage, calculateCartQuantity } from "../
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
-calculateCartQuantity();
+
 let productsHTML = '';
 
 products.forEach((product) =>{
@@ -79,3 +79,5 @@ document.querySelectorAll('.js-add-to-cart')
 
     })
   })
+
+  calculateCartQuantity();

@@ -36,7 +36,7 @@ export function addToCart(productId) {
       saveToStorage();
 }
 
-let addedMessageTimeoutId;
+
 
 
 export function displayAddedMessage(productId) {
@@ -44,16 +44,18 @@ export function displayAddedMessage(productId) {
 
       addedMessage.classList.add('is-visible')
 
+      const existingTimeoutId = addedMessage.dataset.timeoutId;
+
      
-        if (addedMessageTimeoutId) {
-          clearTimeout(addedMessageTimeoutId)
+        if (existingTimeoutId) {
+          clearTimeout(existingTimeoutId)
         }
 
         const timeoutID = setTimeout(() => {
           addedMessage.classList.remove('is-visible')
         }, 2000);
         
-        addedMessageTimeoutId = timeoutID
+        addedMessage.dataset.timeoutId = timeoutID;
 }
 
 export function removeFromCart(productId) {
@@ -69,4 +71,14 @@ export function removeFromCart(productId) {
   saveToStorage();
   
   
+}
+
+export function calculateCartQuantity() {
+  var cartQuantity = 0;
+  
+    cart.forEach((cartItem) => {
+      cartQuantity += cartItem.quantity;
+    });
+
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
 }

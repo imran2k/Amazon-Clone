@@ -80,27 +80,46 @@ export function removeFromCart(productId) {
   
 }
 
-export function calculateCartQuantity() {
+
+
+
+
+
+
+function updateCartItemQuan() {
   var cartQuantity = 0;
   
     cart.forEach((cartItem) => {
       cartQuantity += cartItem.quantity;
+      
     });
+    return cartQuantity;
 
-    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
+}
 
-    
+
+
+export function calculateCartQuantity() {
+  document.querySelector('.js-cart-quantity').innerHTML = updateCartItemQuan();
 }
 
 export function calculateCheckoutQuantity() {
-  var cartQuantity = 0;
-  
-    cart.forEach((cartItem) => {
-      cartQuantity += cartItem.quantity;
-    });
-
-    document.querySelector('.js-checkout-header').innerHTML = `${cartQuantity} items`
+    document.querySelector('.js-checkout-header').innerHTML = `${updateCartItemQuan()} items`
 }
+
+export function calculatePaymentSummaryItems() {
+    document.querySelector('.js-item-count').innerHTML = `Items: (${updateCartItemQuan()})`;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 export function updateQuantity(productId, newQuantity) {

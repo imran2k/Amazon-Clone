@@ -1,4 +1,10 @@
-export let cart = JSON.parse(localStorage.getItem('cart')) || [{
+export let cart;
+
+loadFromStorage();
+
+export function loadFromStorage() {
+
+  cart = JSON.parse(localStorage.getItem('cart')) || [{
     productId:'1a',
     quantity: 2,
     deliveryOptionId: '1',
@@ -7,7 +13,8 @@ export let cart = JSON.parse(localStorage.getItem('cart')) || [{
     quantity: 2,
     deliveryOptionId: '2',
   }];
-
+  
+}
 
 
 
@@ -150,3 +157,4 @@ export function updateDeliveryOption (productId, deliveryOptionId) {
 
   saveToStorage();
 }
+

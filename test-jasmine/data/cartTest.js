@@ -56,4 +56,5 @@ describe('Test Suite: Add to Cart', () => {
 
 
   })
-})
+});
+

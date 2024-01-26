@@ -72,7 +72,7 @@ describe('Test Suite: Render Order Summary', () => {
       expect(cart.length).toEqual(1)
       expect(cart[0].productId).toEqual(prodcutId2);
 
-  })
+  });
 
-})
+});
 

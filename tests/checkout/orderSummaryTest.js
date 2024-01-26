@@ -50,6 +50,12 @@ describe('Test Suite: Render Order Summary', () => {
 
       expect(document.querySelector(`.js-product-quantity-${prodcutId2}`).innerText).toContain('Quantity: 2');
 
+      expect(document.querySelector(`.js-product-name-${prodcutId1}`).innerText).toEqual('Red Dead Redemption 2 PC (Rockstar Social Club - PC Code - No CD/DVD)');
+
+      expect(document.querySelector(`.js-product-price-${prodcutId1}`).innerText).toEqual('$28.40');
+
+      expect(document.querySelector(`.js-product-price-${prodcutId2}`).innerText).toEqual('$20.95');
+
       
   });
 

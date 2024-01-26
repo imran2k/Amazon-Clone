@@ -26,21 +26,11 @@ if (formatCurrency(0) === '0.00') {
 
 //testcase 3
 console.log('-Rounds up to the nearest cent')
-if (formatCurrency(2000.5) === '-20.01') {
+if (formatCurrency(2000.5) === '20.01') {
   console.log('-passed');
 } else {
   console.log('-failed');
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -50,5 +40,13 @@ if (formatCurrency(2000.4) === '20.00') {
 } else {
   console.log('failed');
 }
+
+if (formatCurrency(-2000.4) === '-20.00') {
+  console.log('passed');
+} else {
+  console.log('failed');
+}
+
+
 
 

@@ -1,9 +1,9 @@
-import { cart, removeFromCart, calculateCheckoutQuantity, updateQuantity, updateDeliveryOption, calculatePaymentSummaryItems } from "../../data/cart.js";
-import { products, getProduct } from "../../data/products.js";
-import { formatCurrency } from "../utils/money.js";
+import { cart, removeFromCart, calculateCheckoutQuantity, updateQuantity, updateDeliveryOption, calculatePaymentSummaryItems } from "data/cart.js";
+import { products, getProduct } from "data/products.js";
+import { formatCurrency } from "scripts/utils/money.js";
 
-import {deliveryOptions, getDeliveryOption, calculateDeliveryDate} from "../../data/deliveryOptions.js";
-import { renderPaymentSummary } from "./paymentSummary.js";
+import {deliveryOptions, getDeliveryOption, calculateDeliveryDate} from "data/deliveryOptions.js";
+import { renderPaymentSummary } from "scripts/checkout/paymentSummary.js";
 
 export function renderOrderSummary() {
   let cartSummaryHTML = '';
